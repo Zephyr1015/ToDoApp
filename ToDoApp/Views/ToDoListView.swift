@@ -14,7 +14,7 @@ struct ToDoListView: View {
     
     private func deleteToDo(indexSet: IndexSet) {
         indexSet.forEach { index in
-            let todo = ToDo[index]
+            let todo = todos[index]
             context.delete(todo)
             
             do {
@@ -36,14 +36,15 @@ struct ToDoListView: View {
                             .font(.caption)
                     }
                 }
-            }.onDelete(perform: deleteTodo)
+            }.onDelete(perform: deleteToDo)
         }.navigationDestination(for: ToDo.self) { todo in
             ToDoDetailScreen(todo: todo)
         }
     }
 }
 
-#Preview {
-    ToDoListView()
-//        .modelContainer(for: ToDo.self, inMemory: true)
-}
+//#Preview {
+//    ToDoListView()
+//        .modelContainer(for: [ToDo.self])
+////        .modelContainer(for: ToDo.self, inMemory: true)
+//}

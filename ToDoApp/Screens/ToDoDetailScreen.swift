@@ -42,6 +42,7 @@ struct ToDoDetailScreen: View {
     }
 }
 
-#Preview {
-    ToDoDetailScreen()
-}
+//#Preview {
+//    ToDoDetailScreen()
+//        .modelContainer(for: [ToDo.self])
+//}

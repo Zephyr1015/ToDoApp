@@ -16,11 +16,11 @@ struct AddToDoListItemScreen: View {
     @Environment(\.dismiss) private var dismiss
     
     private var isFormValid: Bool {
-        !name.isEmpty && !noteDiscription.isEmpty
+        !name.isEmptyOrWithWhiteSpace && !noteDiscription.isEmptyOrWithWhiteSpace
     }
     
     var body: some View {
-        NavigationLink {
+        NavigationView {
             Form {
                 TextField("Enter title", text: $name)
                 TextField("Enter your notes", text: $noteDiscription)
@@ -49,4 +49,5 @@ struct AddToDoListItemScreen: View {
 
 #Preview {
     AddToDoListItemScreen()
+        .modelContainer(for: [ToDo.self])
 }
